@@ -1,0 +1,25 @@
+# Python set-up files
+/build/
+/dist/
+*.egg-info/
+*.pyc
+__pycache__/
+
+# OS X-generated files
+._*
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+Icon\?
+
+# Windows-generated files
+Desktop.ini
+ehthumbs.db
+Thumbs.db
+
+# Editor-generated files
+*~
+.*.s[a-w][a-z]
+*.sublime-workspace
+

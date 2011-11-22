@@ -1,0 +1,3 @@
+crcmod     >= 1.7
+ansicolors >= 1.0
+

@@ -1,0 +1,23 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.pyc",
+				"*~",
+				".DS_Store",
+				"*.sublime-workspace"
+			],
+			"folder_exclude_patterns":
+			[
+				"build",
+				"dist",
+				"*.egg-info",
+				"__pycache__"
+			],
+			"name": "mp3sum",
+			"path": "."
+		}
+	]
+}
