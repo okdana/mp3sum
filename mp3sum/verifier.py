@@ -37,31 +37,20 @@ class Result(Exception):
     self.path   = path
     Exception.__init__(self, '%s yielded result: %i' % (path, result))
 
-def is_mp3(path, advanced = False):
+def is_mp3(path):
   """
   Determines whether a file looks like an MP3.
 
   @param str path
     The path to the file to check.
 
-  @param bool advanced
-    Whether to use more advanced (and less performant) methods to determine a
-    file's validity as an MP3.
-
   @return bool
     True if the file seems like an MP3, False if not.
   """
-  if path.lower().endswith('.mp3'):
-    return True if os.path.isfile(path) else False
   if path.startswith('._'):
     return False
-
-  if advanced:
-    try:
-      if os.path.getsize(path) < 128:
-        return False
-    except: pass
-
+  if path.lower().endswith('.mp3'):
+    return os.path.isfile(path)
   return False
 
 def find_frame(buffer):
@@ -94,9 +83,6 @@ def verify_mp3(path, logger, options):
     One of this module's error constants.
   """
   try:
-    if not is_mp3(path):
-      return ERROR_NOT_MP3
-
     tag_crc       = None
     tag_crc_now   = None
     music_crc     = None

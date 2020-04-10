@@ -52,14 +52,17 @@ def main(argv=None):
         for root, sub_dirs, sub_files in os.walk(path):
           sub_files.sort()
           for sub_file in sub_files:
-            paths.append(os.path.join(root, sub_file))
+            sf = os.path.join(root, sub_file)
+            if verifier.is_mp3(sf):
+              paths.append(sf)
       # Non-recursive — get files in immediate directory
       else:
         sub_files = os.listdir(path)
         sub_files.sort()
         for sub_file in sub_files:
-          if os.path.isfile(os.path.join(path, sub_file)):
-            paths.append(os.path.join(path, sub_file))
+          sf = os.path.join(path, sub_file)
+          if os.path.isfile(sf) and verifier.is_mp3(sf):
+            paths.append(sf)
     # Path is a file
     else:
       paths.append(path)
