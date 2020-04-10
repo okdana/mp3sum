@@ -26,7 +26,7 @@ the data in the file has not been corrupted.
 First, install the utility:
 
 ```
-% git clone git@github.com:okdana/mp3sum.git
+% git clone https://github.com/okdana/mp3sum
 % cd mp3sum
 % sudo pip3 install -r requirements.txt
 % sudo make install
@@ -113,4 +113,3 @@ As usual, `mp3sum` is provided under the MIT licence.
 ## Where can i learn more?
 
 * http://gabriel.mp3-tech.org/mp3infotag.html
-
