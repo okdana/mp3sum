@@ -31,7 +31,7 @@ test:
 
 	echo 'tests/cases/8 (fail):'
 	$(MP3SUM_PY2) ./tests/cases/8 2>&1; (( $$? == 8 ))
-	$(MP3SUM_PY3) ./tests/cases/4 2>&1; (( $$? == 4 ))
+	$(MP3SUM_PY3) ./tests/cases/8 2>&1; (( $$? == 8 ))
 
 	echo 'OK!'
 
