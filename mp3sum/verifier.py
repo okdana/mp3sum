@@ -8,6 +8,8 @@ import os
 import sys
 import struct
 
+from distutils.version import LooseVersion
+
 from mp3sum import util
 
 ERROR_NOT_MP3        = -1
@@ -219,16 +221,17 @@ def verify_mp3(path, logger, options):
     # Check version number
     else:
       try:
-        lame_version = float(lame_tag[4:8])
+        lame_version = LooseVersion(lame_tag[4:9].decode('utf-8'))
+        lame_version < LooseVersion('3.90') # Catch incompatible versions
       except:
         lame_version = None
 
       # If our cast to float failed, it's probably because some stupid
       # scene group messed with the version string
-      if lame_version == None:
+      if lame_version is None:
         logger.debug('Bad LAME tag %s; trying anyway' % lame_tag)
       # LAME versions <3.90 don't do MusicCRC
-      elif lame_version < 3.90:
+      elif lame_version < LooseVersion('3.90'):
         logger.debug('Insufficient LAME version %s' % lame_tag)
         raise Result(ERROR_UNSUPPORTED, display_path)
       else:
