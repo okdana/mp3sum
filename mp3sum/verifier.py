@@ -226,8 +226,8 @@ def verify_mp3(path, logger, options):
       except:
         lame_version = None
 
-      # If our cast to float failed, it's probably because some stupid
-      # scene group messed with the version string
+      # If the above failed, it's probably because some stupid scene group
+      # messed with the version string
       if lame_version is None:
         logger.debug('Bad LAME tag %s; trying anyway' % lame_tag)
       # LAME versions <3.90 don't do MusicCRC
